@@ -1,0 +1,55 @@
+.container{
+    margin-top: 100px;
+}
+.cancel{
+        font-size: var(--p-font);
+        font-weight: 500;
+        border-radius: 4px;
+        transition: ease .40s;
+        
+    
+}
+.cancel:hover{
+    
+    background: red;
+    color: var(--text-color);
+    box-shadow: 5px 10px 30px rgba(56, 56, 56, 0.2);
+    border-radius: 4px;
+}
+td{
+    align-items: center;
+}
+.row{
+    align-items: center;
+}
+.col1 button{
+        font-size: 20px;
+        font-weight: 500;
+        border-radius: 4px;
+        transition: ease .40s;
+        box-shadow: 5px 10px 30px rgba(56, 56, 56, 0.2);
+        border-radius: 4px;
+        color: #000;
+        background-color: rgb(153, 187, 222);
+    
+}
+.img1{
+    width: 200px;
+    height: 200px;
+}
+.tr2 :nth-child(7){
+    background-color: rgb(61, 157, 61);
+    font-weight: 600;
+    border-radius: 10px;
+}
+tbody{
+    text-align: center;
+}
+thead{
+    text-align: center;
+}
+table{
+    background-color: rgb(249, 248, 247);
+    box-shadow: 4px 2px rgb(110, 102, 102);
+    border-radius: 10px;
+}

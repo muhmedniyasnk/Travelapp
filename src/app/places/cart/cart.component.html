@@ -1,0 +1,84 @@
+<app-header></app-header>
+
+
+<!-- empty cart -->
+<div class="p2" *ngIf="nomsg">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col1">
+                <img class="img1" src="https://cdn.dribbble.com/users/665029/screenshots/16162764/media/3ea69cb1655fba401acc6c4328d38633.gif" alt="">
+            <h3 class="mt-3">No More Bookings</h3>
+            <button routerLink="/allplace" class="btn mt-2">Start Booking</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+<!-- cart with content -->
+<div class="container">
+    <div class="row" *ngFor="let order of allorders">
+        <!-- <div class="cancel1">
+            <h3 class="">Are You Sure Want to Cancel</h3>
+            <button class="btn btn-success">Yes</button><span><button class="btn btn-danger">No</button></span>
+        </div> -->
+        <div class="col">
+            <table class="table mt-4">
+                <thead>
+                    <tr>
+                        <th>Order Id</th>
+                        <th>Username</th>
+                        <th>Name</th>
+                        <th>Package</th>
+                        <th>Booking Date</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Cancel Booking</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="tr2">
+                        <td>{{order.id}}</td>
+                        <td>{{username}}</td>
+                        <td>{{order.name}}</td>
+                        <td>{{order.place}}</td>
+                        <td>{{order.date}}</td>
+                        <td>{{order.price}}</td>
+                        <td>Confirmed</td>
+                        <td><button class="cancel btn-danger"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Cancel</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- <div style="float: right;" class="mb-3 me-5">
+
+                <b>Grand Total:</b>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> -->
+        <div class="modal-body">
+          <h5>Are You Sure Want to Cancel</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+          <button  *ngFor="let order of allorders" type="button" class="btn btn-danger" (click)="cancelorder(order)">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<app-footer></app-footer>
+
+

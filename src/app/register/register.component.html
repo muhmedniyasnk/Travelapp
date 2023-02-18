@@ -1,0 +1,29 @@
+
+<form >
+<div class="containe">
+    <div class="card1">
+        <div class="inner-box">
+            <div class="card-front">
+                <h2>REGISTER</h2>
+                <form [formGroup]="registrationForm">
+                    <input formControlName="uname" name="uname" type="username" class="input-box" placeholder="username" required>
+                    <div *ngIf="this.registrationForm.get('uname')?.errors && this.registrationForm.get('uname')?.touched" style="color: red;">Invalid username</div>
+
+                    <input formControlName="num" name="num" type="text" class="input-box" placeholder="Mobile Number" required>
+                    <div *ngIf="this.registrationForm.get('num')?.errors && this.registrationForm.get('num')?.touched" style="color: red;">Invalid Mobile number</div>
+
+                    <input formControlName="pswd" name="pswd" type="password" class="input-box" placeholder="password" required>
+                    <div *ngIf="this.registrationForm.get('pswd')?.errors && this.registrationForm.get('pswd')?.touched" style="color: red;">Invalid password</div>
+
+                    <button type="submit" (click)="register()" class="submit-btn">Submit</button>
+                    <input type="checkbox"><span>Remember Me</span>
+                </form>
+                <button routerLink='' type="button"  class="btn">I've an account</button>
+
+            </div>
+            <!-- <div class="card-back"></div> -->
+
+        </div>
+    </div>
+</div>
+

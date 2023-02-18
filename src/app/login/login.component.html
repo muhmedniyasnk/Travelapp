@@ -1,0 +1,26 @@
+
+
+
+<div class="containe">
+    <div class="card1">
+        <div class="inner-box">
+            <div class="card-front">
+                <h2>LOGIN</h2>
+                <form [formGroup]="loginForm">
+                    <input formControlName="num" name="num" type="text" class="input-box" placeholder="Mobile Number" required>
+                    <div *ngIf="this.loginForm.get('num')?.errors && this.loginForm.get('num')?.touched" style="color: red;">Invalid Mobile number</div>
+
+                    <input formControlName="pswd" name="pswd" type="password" class="input-box" placeholder="password" required>
+                    <div *ngIf="this.loginForm.get('pswd')?.errors && this.loginForm.get('pswd')?.touched" style="color: red;">Invalid Mobile number</div>
+
+                    <button (click)="login()" type="submit" class="submit-btn">Submit</button>
+                    <input type="checkbox"><span>Remember Me</span>
+                </form>
+                <button routerLink="/Register"  type="button" class="btn">I'm New Here</button>
+                <a routerLink=''>Forgot password</a>
+            </div>
+            <!-- <div class="card-back"></div> -->
+
+        </div>
+    </div>
+</div>

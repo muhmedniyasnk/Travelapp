@@ -1,0 +1,131 @@
+<app-header></app-header>
+
+
+<!-- <pre>
+    {{allplaces}}
+</pre> -->
+
+<section class="all">
+<section class="home" id="section1">
+    <div class="home-text">
+        <h1>Fuel Mind <br>Travel</h1>
+        <p>Enthusianstically extend extensive customer service before <br>best breed 
+        convergence completely.</p>
+        <a routerLink=""  class="home-btn">Let's go now</a>
+    </div>
+</section>
+
+<section class="package1" id="section2">
+    <div class="title1">
+        <h2>Start Your Vacation <br> With Lots of Packages</h2>
+    </div>
+    
+    <div class="package-content1 row">
+        <div class="box1 col" *ngFor="let places of allplaces | filter:searchTerm:'place'">
+            <div class="thum1" >
+                <div class="image">
+                <img [src]="places.image" alt="">
+                <h3>${{places.price}}</h3>
+                <!-- <p>rfv</p> -->
+            </div>
+            <div class="dest-content1">
+                <div class="location1">
+                    <h4>{{places.place}}</h4>
+                    <h6><i class='bx bx-time-five time'></i><span>{{places.days}}</span></h6>
+                </div>
+
+                <div class="stars1">
+                    <button (click)="addtowishlist(places)" class="icon"><i class='bx bx-heart'></i></button><br>
+                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn1" (click)="booking(places)">Booking</button>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        <button class="logout" (click)="logout()">Logout</button>
+
+
+    </div>
+
+    
+</section>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Chekout Page</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="package-content2">
+                <div class="box2">
+                    <div class="thum2">
+                        <div class="image2">
+                            <img src="{{bookedplace.image}}" alt="">
+                            <div class="details">
+                                <h3>{{bookedplace.place}}</h3>
+                                <h5>{{bookedplace.days}}</h5>
+                                <h4>${{bookedplace.price}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form [formGroup]="getform">
+                <input type="text" placeholder="Your Name" formControlName="name" name="name" class="form-control mb-2" >
+                <input type="text" placeholder="Contact Number" formControlName="phone" name="phone" class="form-control mb-2">
+                <input type="text" placeholder="Booking Date" formControlName="date" name="date" class="form-control mb-2">
+                <input type="text" placeholder=" YourPlace" formControlName="buyerplace" name="buyername" class="form-control mb-2">
+                <input type="text" placeholder=" Pincode" formControlName="pincode" name="pincode" class="form-control mb-2">
+
+    
+                <h2>Payment Method</h2>
+                <div class="dropdown">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Payment Method
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" (click)="paymentmethod()">UPI</a></li>
+                      <li><a class="dropdown-item" (click)="paymentmethod()">Debit Card</a></li>
+                      <li><a class="dropdown-item" (click)="paymentmethod()">Credit Card</a></li>
+                    </ul>
+                  </div>
+    
+              </form>
+              <h4 class="text-success">{{status}}</h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="bookplace(bookedplace)">proceed</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+<!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+      <div class="modal-content"> -->
+        <!-- <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> -->
+        <!-- <div class="modal-body">
+          <h5>Your Order Confirmed</h5>
+        </div>
+        <div class="modal-footer"> -->
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button> -->
+          <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal">ok</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+  <app-footer></app-footer>
+
